@@ -59,7 +59,7 @@ app.post('/login', async (req, res) => {
     res.render('index', { "error": "Invalid user name or password", info: { "imageURL": imageMac } })
   }
 });
-
+//
 //newUser (register)
 app.get("/register", (req, res) => {
   res.render("newUser")
