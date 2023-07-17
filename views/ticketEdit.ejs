@@ -1,0 +1,74 @@
+<%- include('partials/header.ejs') %>
+<body>
+  <h2> Updating Ticket Data </h2>
+  <div class="sidenav">
+    Navigation
+    <br><br>
+  <nav>
+    <a href="/technician/new" >Add a New Technician</a> <br>
+    <a href="/technician/lookup" >Find and Update Technicians</a> <br>
+    <a href="/customer/lookup" >Find, Update and Add Customers</a> <br>
+  
+    <br> </br>
+    <a href="/technician/home">Technician Home</a>
+    <br>
+    <a href="/" >Logout</a>
+    </nav>
+  </div>
+  
+  <form method="POST" action="/ticket/edit" class="uInputForm">
+
+    <input type="hidden" name="requestId" value="<%=ticketInfo[0].requestId%>">
+
+    <label>Request ID:</label>
+    <%= ticketInfo[0].requestId %>
+    
+
+    <label>Product ID:</label>
+    <%= ticketInfo[0].productName %>
+    
+
+    <label>Customer:</label>
+    <%= ticketInfo[0].cFirstName %> <%= ticketInfo[0].cLastName %>
+    
+
+    <label>Date Requested:</label>
+    <%= ticketInfo[0].timeRequested %>
+    
+
+    <label>Date Closed:</label>
+    <input type="date" name="timeFilled" value="<%=ticketInfo[0].timeFilled%>">
+    
+
+    <label>Technician Assigned:</label>
+    <select name="technicianId">
+    <% for (technician of technicians) { %>
+      <option value="<%=technician.technicianId%>"
+        <% if (ticketInfo[0].technicianId == technician.technicianId) { %>
+          selected 
+        <% } %>  
+      >
+        <%= technician.firstName%> <%= technician.lastName%>
+      </option>
+    <% } %>
+    </select>
+    
+
+    <label>Problem Statement:</label>
+    <%= ticketInfo[0].description %>
+    
+     <br> 
+    <label>Add Repair Notes:</label>
+    <input type="text" name="repair" value="<%=ticketInfo[0].repair%>">
+    <br>
+
+    <button class="indexButtons">Update</button>
+  </form>
+<br>
+
+  <% if (typeof message != "undefined"){ %>
+  	<h3><%=message%></h3>
+  <% } %>
+  <%- include('partials/footer.ejs') %>
+</body>
+</html>

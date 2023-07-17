@@ -1,0 +1,36 @@
+<%- include('partials/header.ejs') %>
+<body>
+  <h2> Print a Closed Ticket </h2>
+  <div class="sidenav">
+    Navigation
+    <br><br>
+  <nav>
+    <a href="/technician/new" >Add a New Technician</a> <br>
+    <a href="/technician/lookup" >Find and Update Technicians</a> <br>
+    <a href="/customer/lookup" >Find, Update and Add Customers</a> <br>
+  
+    <br> </br>
+    <a href="/technician/home">Technician Home</a>
+    <br>
+    <a href="/" >Logout</a>
+    </nav>
+  </div>
+
+  <select id="requestId" name="requestId" required>    
+      <option value="">--Select Closed Ticket--</option>
+    <% for (ticket of tickets) { %>
+      <option value="<%=ticket.requestId%>">
+        <%= ticket.requestId %> - <%= ticket.productName %> - <%= ticket.cFirstName %> <%= ticket.cLastName %> - <%= ticket.timeRequested %> - <%= ticket.timeFilled %>
+      </option>
+    <% } %>
+  </select>
+  
+  <button id="viewButton">View</button>
+  <br>
+
+  <div id="ticketInfo"></div>
+  
+  <%- include('partials/footer.ejs') %>
+  <script src="/js/scriptTicketPrint.js"></script>
+</body>
+</html>

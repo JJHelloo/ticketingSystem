@@ -1,0 +1,35 @@
+<%- include("partials/header.ejs") %>
+  
+<body>
+  <h1>Adding a new product</h1>
+ 
+    <form method="POST" action="/product/new">
+      Product Name:
+      <input type="text" name="productName" maxlength="25" size="25"><br>
+      Type:
+ <!--     <input type="text" name="productType" maxlength="25" size="25"><br> -->
+      <select name="productType">
+      <% for (product of products) { %>
+        <option value="<%=product.productType%>">
+          <%= product.productType%> 
+        </option>
+      <% } %>
+      </select>
+        <br>
+      Brand:
+      <input type="text" name="productBrand" maxlength="25" size="25"><br>
+      
+
+      <br>
+      <button>Add Product</button>
+    </form>
+
+  
+<% if (typeof message != "undefined"){ %>
+             <h3><%=message%></h3>
+ <% } %>
+
+  <%- include("partials/footer.ejs") %>
+   
+</body>
+</html>

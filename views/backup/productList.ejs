@@ -1,0 +1,20 @@
+<%- include("partials/header.ejs") %>
+  
+<body>
+ 
+ <h1> Update/Delete product </h1>
+ 
+ <% for (i=0; i < products.length; i++) { %>
+ 
+   <a href="/product/edit?productId=<%=products[i].productId%>">UPDATE</a>
+ 
+   <a href="/product/delete?productId=<%=products[i].productId%>">DELETE</a>
+ 
+   <%=products[i].productName%><br>
+ 
+ <% } %>
+
+  <%- include("partials/footer.ejs") %>
+
+</body>
+</html>

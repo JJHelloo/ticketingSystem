@@ -1,0 +1,49 @@
+<%- include('partials/header.ejs') %>
+<body>
+  <h2> Add a new Technician </h2>
+  <div class="sidenav">
+    Navigation
+    <br><br>
+  <nav>
+    <!--<a href="/technician/new" >Add a New Technician</a> <br>-->
+    <a href="/technician/lookup" >Find and Update Technicians</a> <br>
+    <a href="/customer/lookup" >Find, Update and Add Customers</a> <br>
+  
+    <br> </br>
+    <a href="/technician/home">Technician Home</a>
+    <br>
+    <a href="/" >Logout</a>
+
+</nav>
+  </div>
+  <form method="POST" id="techSignup" class="uInputForm" action="/technician/new">
+    <label> First Name: </label>
+    <input type="text" name="fName">
+
+    <label>Last Name:</label>
+    <input type="text" name="lName">
+    
+    <label>Zip:</label>
+    <input type="text" name="zip">
+    
+    <label>Email:</label>
+    <input type="text" name="email">
+    
+    <label>Phone:</label>
+    <input type="text" name="phoneNumber">
+    
+    <label>Military:</label><br>
+    <label>Yes</label><input type="radio" name="military" value="Y">
+    <label>No</label><input type="radio" name="military" value="N"><br>
+    
+    <button class="indexButtons">Add Technician</button>
+    <br>
+  </form>
+  <br>
+
+  <% if (typeof message != "undefined"){ %>
+  	<h3><%=message%></h3>
+  <% } %>
+  <%- include('partials/footer.ejs') %>
+</body>
+</html>

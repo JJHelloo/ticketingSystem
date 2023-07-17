@@ -1,0 +1,82 @@
+<%- include('partials/header.ejs') %>
+<body>
+  <h2>Customer Records</h2>
+  <div class="sidenav">
+    Navigation
+    <br><br>
+  <nav>
+    <a href="/technician/new" >Add a New Technician</a> <br>
+    <a href="/technician/lookup" >Find and Update Technicians</a> <br>
+  <!--  <a href="/customer/lookup" >Find, Update and Add Customers</a> <br> -->
+  
+    <br> </br>
+    <a href="/technician/home">Technician Home</a>
+    <br>
+    <a href="/" >Logout</a>
+    </nav>
+  </div>
+  <br>
+  <div id="twoColumnFlex">
+  <div>
+    <h3> Search</h3>
+  
+  <form method="POST" action="/customer/printByLastName">
+    <br>
+    <select name="customerIdOfLastName" required>    
+      <option value="">--Select Customer Name--</option>
+      <% for (customer of info.customersByLastName) { %>
+        <option value="<%=customer.customerId%>">
+          <%=customer.lastName%>, <%=customer.firstName%> - <%=customer.email%>
+        </option>     
+      <% } %>
+    </select>
+        <br></br>
+    <button class="indexButtons">Search</button>
+  </form>
+
+  <br>
+
+   <form method="POST" action="/customer/printById">
+      <br>
+       <select name="customerId" required>
+         <option value="">--Select Customer ID--</option>
+      <% for (customer of info.customersById) { %>
+        <option value="<%=customer.customerId%>">
+          <%=customer.customerId%> - <%=customer.lastName%>, <%=customer.firstName%>
+        </option>
+      <% } %>
+    </select>
+        <br></br>
+        <button class="indexButtons">Search</button>
+  </form>
+  </div>
+  <br>
+        <div>
+  <h3>Create New</h3>
+ 
+  <form method="POST" action="/customer/printByNew" id="customerInfo" class="uInputForm">
+    <label> First Name: </label>
+    <input type="text" name="fName">
+
+    <label>Last Name:</label>
+    <input type="text" name="lName">
+    
+    <label>Zip:</label>
+    <input type="text" name="zip">
+    
+    <label>Email:</label>
+    <input type="text" name="email">
+    
+    <label>Phone:</label>
+    <input type="text" name="phoneNumber">
+    
+    <label>Military:</label><br>
+    <label>Yes</label><input type="radio" name="military" value="Y">
+    <label>No</label><input type="radio" name="military" value="N"><br>
+    <button class="indexButtons">Create</button>
+  </form>
+  </div>
+  </div>
+  <%- include('partials/footer.ejs') %>
+</body>
+</html>

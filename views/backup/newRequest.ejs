@@ -1,0 +1,57 @@
+<%- include("partials/header.ejs") %>
+  
+<body>
+  <h1>Adding a new Repair Ticket</h1>
+ 
+    <form method="POST" action="/request/new">
+      Technician: 
+      <select name="technicianId">
+      <% for (technician of info.technicians) { %>
+        <option value="<%=technician.technicianId%>">
+          <%= technician.technicianId%> <%= technician.firstName%> <%= technician.lastName%>
+        </option>
+      <% } %>
+    </select>
+      <br>
+      User Name: 
+       <select name="customerId">
+      <% for (customer of info.customers) { %>
+        <option value="<%=customer.customerId%>">
+          <%=customer.firstName%>  <%=customer.lastName%>
+        </option>
+      <% } %>
+    </select>
+        <br>
+      Category: 
+      <select name="productId">
+      <% for (product of info.products) { %>
+        <option value="<%=product.productId%>">
+          <%= product.productName%>
+        </option>
+      <% } %>
+    </select>
+      <br>  
+
+      <!--
+      Time Requested:
+      <input type="date" name="timeRequested">
+      <br>
+
+      Time Filled:
+      <input type="date" name="timeFilled">
+      <br>
+      -->
+      
+      <button>Add Request</button>
+        
+    </form>
+
+<% if (typeof info.message != "undefined"){ %>
+             <h3><%=info.message%></h3>        
+ <% } %>
+
+  <%- include("partials/footer.ejs") %>
+   
+</body>
+</html>
+ 

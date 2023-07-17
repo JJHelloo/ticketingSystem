@@ -1,0 +1,72 @@
+<%- include('partials/header.ejs') %>
+<body>
+  <h2>New Repair</h2>
+  <div class="sidenav">
+    Navigation
+    <br><br>
+  <nav>
+    <a href="/technician/new" >Add a New Technician</a> <br>
+    <a href="/technician/lookup" >Find and Update Technicians</a> <br>
+    <a href="/customer/lookup" >Find, Update and Add Customers</a> <br>
+  
+    <br> </br>
+    <a href="/technician/home">Technician Home</a>
+    <br>
+    <a href="/" >Logout</a>
+    </nav>
+  </div>
+  
+   <!-- <div id="card"> -->
+    <form method="POST" action="/ticket/new">
+      <!--select customer -->
+       <select name="customerId"required>    
+      <option value="">--Select Customer Name--</option>
+      <% for (customer of customers) { %>
+        <option value="<%=customer.customerId%>">
+          <%=customer.firstName%>  <%=customer.lastName%>
+        </option>
+      <% } %>
+    </select>
+  
+        <p align:"center">If customer is not listed, <a href="/customer/lookup" >add a customer</a> first.</p>
+ 
+        <!--assign technician -->
+      <select name="technicianId"required>    
+      <option value="">--Assign Technician--</option>
+      <% for (technician of technicians) { %>
+        <option value="<%=technician.technicianId%>">
+          <%= technician.firstName%> <%= technician.lastName%>
+        </option>
+      <% } %>
+    </select>
+      
+     <br></br>
+        <!--assign product -->
+      <select id="productId" name="productId"required>    
+      <option value="">--Select Product--</option>
+      <% for (product of products) { %>
+        <option value="<%=product.productId%>">
+          <%= product.productName%>
+        </option>
+      <% } %>
+    </select>
+      <br>
+
+      <div id="productInfo"></div>
+      <br>
+      <label>Enter Customer Problem Statement</label><br>
+      <input type="text" name="description"><br>
+      <br>
+      <button class="indexButtons">Create Ticket</button>      
+    </form>
+        <br>
+ <!--     </div>  -->
+<% if (typeof message != "undefined"){ %>
+  	<h3><%=message%></h3>
+  <% } %>
+  </div>
+  <%- include("partials/footer.ejs") %>
+  <script src="/js/scriptTicketNew.js"></script>
+</body>
+</html>
+ 

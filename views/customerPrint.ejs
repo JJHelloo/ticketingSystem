@@ -1,0 +1,41 @@
+<%- include('partials/header.ejs') %>
+<body>
+  <h2>Customer Information</h2>
+  <div class="sidenav">
+    Navigation
+    <br><br>
+  <nav>
+    <a href="/technician/new" >Add a New Technician</a> <br>
+    <a href="/technician/lookup" >Find and Update Technicians</a> <br>
+    <a href="/customer/lookup" >Find, Update and Add Customers</a> <br>
+  
+    <br> </br>
+    <a href="/technician/home">Technician Home</a>
+    <br>
+    <a href="/" >Logout</a>
+    </nav>
+  </div>
+
+  Customer ID: <%=customerInfo[0].customerId%><br>
+  First Name: <%=customerInfo[0].firstName%><br>
+  Last Name: <%=customerInfo[0].lastName%><br>
+  Email: <%=customerInfo[0].email%><br>
+  Phone Number: <%=customerInfo[0].phoneNumber%><br>
+  Military Discount: 
+  <% if (customerInfo[0].military == "Y") { %>
+    Yes
+  <% } %>
+  <% if (customerInfo[0].military == "N") { %>
+    No 
+  <% } %>
+  <br>
+  Zip: <%=customerInfo[0].zip%><br>
+  
+  <form action="/customer/edit">
+    <input type="hidden" name="customerId" value="<%=customerInfo[0].customerId%>">
+    <button class="indexButtons">Edit</button>
+  </form>
+
+  <%- include("partials/footer.ejs") %>
+</body>
+</html>

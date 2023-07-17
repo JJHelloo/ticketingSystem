@@ -1,0 +1,44 @@
+<%- include('partials/header.ejs') %>
+<body>
+  <h2> Technician Home </h2>
+  <div class="sidenav">
+    Navigation
+    <br><br>
+    <nav>
+      <a href="/technician/new" >Add a New Technician</a> <br>
+      <a href="/technician/lookup" >Find and Update Technicians</a> <br>
+      <a href="/customer/lookup" >Find, Update and Add Customers</a> <br>
+    
+      <br> </br>
+      <a href="/" >Logout</a>
+  
+    </nav>
+  </div>
+
+  <div id="techHomeDiv">
+  <input type="button" class="indexButtons" onclick="window.location.href = '/customer/lookup';" value="Find or Add Customer" />
+  <br>
+  </div>
+  
+  <div id="techHomeDiv">
+    <input type="button" id="newTicket" class="indexButtons" onclick="window.location.href = '/ticket/new';" value="Create a Ticket" />
+  <br></br>
+  <input type="button" id="viewOpenTickets" class="indexButtons" onclick="window.location.href = '/ticket/currentlyOpen';" value="View Open Tickets" />
+  <br><br>
+  <input type="button" id="lookupTickets" class="indexButtons" onclick="window.location.href = '/ticket/lookup';" value="Search for a Ticket" />
+  <br><br>
+  <input type="button" id="printClosedTickets" class="indexButtons" onclick="window.location.href = '/ticket/print';" value="Print Closed Ticket" />
+  <br>
+  </div>
+
+  <div id="techHomeDiv">
+    <input type="button" class="indexButtons" onclick="window.location.href = '/technician/new';" value="Add a new Technician" />
+  <br></br>
+  <input type="button" class="indexButtons" onclick="window.location.href = '/technician/lookup';" value="Search for a Technician" />
+  <br>
+  </div>
+  
+  <%- include('partials/footer.ejs') %>
+</body>
+</html>
+

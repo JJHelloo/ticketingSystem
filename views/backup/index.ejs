@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Computer Repair</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<link href="/css/indexStyle.css" rel="stylesheet" type="text/css" />
+  
+</head>
+  <body>
+
+  <img id="logo"
+    src="img/logo.png" height="50" width="50" alt="Pacific Analytics logo">
+  <div>
+<!--   <h1> Pacific Analytic's Electronic Repair Shop </h1> -->
+<!--  <h2>Please Sign-in</h2> -->
+
+ <h4><span id="totalAttempts"></span></h4>   
+
+  </div>
+    <div id="card">
+      <h2>Pacific Analytics</h2>
+      
+      <div id="input-container">
+  <form id="indexForm" method="POST">
+<!--    <span id="name">Username</span> <br>  -->
+    
+    <input type="text" id="indexUsername" name="username" placeholder="Username">
+    <br><br>
+<!--    <span id="name">Password</span> <br> -->
+    <input type="password" id="indexPassword" name="password" placeholder="Password">
+    <br><br>
+    <button id="indexLogin">
+      Sign in
+    </button>
+  </form>
+      </div>
+    </div>
+    
+<!--   <form action="/logout">
+    <button>
+      Logout
+    </button>
+  </form> -->
+    <h2><span id="indexError"></span></h2>
+    
+    <% if (typeof info.message != "undefined"){ %>
+             <h3><%=info.message%></h3>        
+ <% } %>
+   <br>
+<!--    <img src="<%= info.imageURL %>" alt="Random mac photo">  -->
+   <div>
+ </div>
+ 
+  <%- include('partials/footer.ejs') %>
+  </body>
+<script src="/js/visits.js"></script> 
+<body onload="count();">
+
+</body>
+</html>

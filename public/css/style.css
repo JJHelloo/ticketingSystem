@@ -1,0 +1,126 @@
+body {
+/*   background-image: url(""); */
+  text-align: center;
+  background-color: #28364e;
+  color: whitesmoke;
+  font-size: .9em;
+}
+/* figure {
+  text-align: center;
+  display: block;
+} */
+
+table{
+  margin-left: auto;
+  margin-right: auto;
+}
+#logout_ {
+  display: none;
+} 
+#card {
+    background-color: #0a0d14;  
+    margin: 0 auto; 
+    float: none; 
+    margin-bottom: 10px;
+    width: 400px;
+    height: 450px;
+    padding-top: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 40px 0 rgba(0,0,0,1);
+}
+#card input {
+  border: none;
+  border-radius: 5px;
+  padding: 15px;
+}
+#input-container  {
+  margin-top:70px;
+}
+#logo {
+  float: left;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+/*class set on Buttons on Index, Should be expanded to include all site buttons.*/
+.indexButtons {
+  background-color:#556ff7;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  max-width: 300px;
+  text-align: center;
+  padding-right:30px;
+  padding-left:30px;
+}
+footer {
+/*   padding-top: 200px; */
+  float: center;
+}
+h4 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+h2 {
+  color: #fff;
+}
+
+h3 {
+  color: #556ff7;
+  font-style: oblique;
+}
+
+::placeholder {
+  color: #556ff7;
+}
+
+/* can be replaced got it from w3schools.com */
+.sidenav {
+/*   opacity: 0.7; */
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 160px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+/* technicianNew, customerLookup */
+.uInputForm {
+  display:grid;
+  grid-template-columns: max-content max-content;
+  grid-gap:5px;
+  justify-content:center;
+}
+
+#twoColumnFlex{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+#techHomeDiv {
+  display: inline-block;
+  justify-content: center;
+  vertical-align:top;
+  padding: 10px;
+  border: 2px black solid;
+  border-radius: 5px;
+}
+
+#image {
+  padding: 50px
+}
+
+#titleHeader {
+  display: flex;
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 15px;
+  align-items: center;
+  justify-content: center;
+}

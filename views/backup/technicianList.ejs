@@ -1,0 +1,21 @@
+<%- include("partials/header.ejs") %>
+  
+<body>
+ 
+ <h1> Update/Delete technician </h1>
+ 
+ <% for (i=0; i < technicians.length; i++) { %>
+ 
+   <a href="/technician/edit?technicianId=<%=technicians[i].technicianId%>">UPDATE</a>
+ 
+   <a href="/technician/delete?technicianId=<%=technicians[i].technicianId%>">DELETE</a>
+ 
+   <%=technicians[i].firstName%>
+   <%=technicians[i].lastName%> <br>
+ 
+ <% } %>
+
+  <%- include("partials/footer.ejs") %>
+
+</body>
+</html>

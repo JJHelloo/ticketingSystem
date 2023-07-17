@@ -1,0 +1,69 @@
+<%- include('partials/header.ejs') %>
+<body>
+
+  <h2> Edit Existing Technician </h2>
+  <div class="sidenav">
+    Navigation
+    <br><br>
+  <nav>
+    <a href="/technician/new" >Add a New Technician</a> <br>
+    <a href="/technician/lookup" >Find and Update Technicians</a> <br>
+    <a href="/customer/lookup" >Find, Update and Add Customers</a> <br>
+  
+    <br> </br>
+    <a href="/technician/home">Technician Home</a>
+    <br>
+    <a href="/" >Logout</a>
+    </nav>
+  </div>
+  
+  <form method="POST" action="/technician/edit" class="uInputForm">
+
+    <input type="hidden" name="technicianId" value="<%=technicianInfo[0].technicianId%>">
+
+    <label>First Name:</label>
+    <input type="text" name="fName" value="<%=technicianInfo[0].firstName%>">
+
+
+    <label>Last Name:</label>
+    <input type="text" name="lName" value="<%=technicianInfo[0].lastName%>">
+ 
+    
+    <label>Zip:</label>
+    <input type="text" name="zip" value="<%=technicianInfo[0].zip%>">
+
+
+    <label>Email:</label>
+    <input type="text" name="email" value="<%=technicianInfo[0].email%>">
+
+
+    <label>Phone:</label>
+    <input type="text" name="phoneNumber" value="<%=technicianInfo[0].phoneNumber%>">
+
+
+   <label>Military:</label>  <br>
+    <label>Yes</label>
+    <input type="radio" name="military" value="Y" 
+    <% if (technicianInfo[0].military == "Y") { %>
+      checked 
+    <% } %>
+    >
+    <label>No</label>
+    <input type="radio" name="military" value="N" 
+    <% if (technicianInfo[0].military == "N") { %>
+      checked 
+    <% } %>
+    >
+    <br>
+
+    <button class="indexButtons">Update</button>
+
+  </form>
+  <br>
+
+  <% if (typeof message != "undefined"){ %>
+  	<h3><%=message%></h3>
+  <% } %>
+  <%- include("partials/footer.ejs") %>
+</body>
+</html>

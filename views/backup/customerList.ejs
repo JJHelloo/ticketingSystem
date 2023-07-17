@@ -1,0 +1,21 @@
+<%- include("partials/header.ejs") %>
+  
+<body>
+ 
+ <h1> Update/Delete Customer </h1>
+ 
+ <% for (i=0; i < customers.length; i++) { %>
+ 
+   <a href="/customer/edit?customerId=<%=customers[i].customerId%>">UPDATE</a>
+ 
+   <a href="/customer/delete?customerId=<%=customers[i].customerId%>">DELETE</a>
+ 
+   <%=customers[i].firstName%>
+   <%=customers[i].lastName%> <br>
+ 
+ <% } %>
+
+  <%- include("partials/footer.ejs") %>
+
+</body>
+</html>

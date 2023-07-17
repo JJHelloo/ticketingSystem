@@ -1,0 +1,39 @@
+<%- include("partials/header.ejs") %>
+  
+<body>
+  
+  <h1>Updating product Data</h1>
+
+    <form method="POST" action="/product/edit">
+
+      <input type="hidden" name="productId" value="<%=info.productInfo[0].productId%>">
+
+      Name:
+      <input type="text" name="productName" maxlength="25" size="25" value="<%=info.productInfo[0].productName%>"><br>
+      Type:
+       <select name="productType">
+         <option value="<%=info.productInfo[0].productType%>"  selected><%=info.productInfo[0].productType%>
+         </option>
+      <% for (product of info.products) { %>
+        <option value="<%=product.productType%>">
+          <%= product.productType%> 
+        </option>
+      <% } %>
+      </select>
+      Brand:
+      <input type="text" name="productBrand" maxlength="50" size="25" value="<%=info.productInfo[0].productBrand%>"><br>
+      
+      <button>Edit product</button>  
+
+
+    </form>
+
+    <br>
+          <% if (typeof message != "undefined"){ %>
+             <h3><%=message%></h3>
+ <% } %>
+
+     <%- include("partials/footer.ejs") %>
+
+</body>
+</html>

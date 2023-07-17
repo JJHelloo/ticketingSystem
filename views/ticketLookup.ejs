@@ -1,0 +1,37 @@
+<%- include('partials/header.ejs') %>
+<body>
+  <h2> Look Up a Ticket </h2>  
+  <div class="sidenav">
+    Navigation
+    <br><br>
+  <nav>
+    <a href="/technician/new" >Add a New Technician</a> <br>
+    <a href="/technician/lookup" >Find and Update Technicians</a> <br>
+    <a href="/customer/lookup" >Find, Update and Add Customers</a> <br>
+  
+    <br> </br>
+    <a href="/technician/home">Technician Home</a>
+    <br>
+    <a href="/" >Logout</a>
+    </nav>
+  </div>
+
+  <form method="GET" action="/ticket/edit">
+    <select name="requestId" required>    
+      <option value="">--Select Open Ticket--</option>
+      <% for (ticket of tickets) { %>
+        <option value="<%=ticket.requestId%>">
+          <%= ticket.requestId %> - <%= ticket.productName %> - <%= ticket.cFirstName %> <%= ticket.cLastName %> - <%= ticket.timeRequested %>
+            <% if (ticket.timeFilled != null) { %>
+               - Complete
+            <% } %>
+        </option>
+      <% } %>
+    </select>
+    <button>Open</button>
+  </form>
+  <br>
+
+  <%- include('partials/footer.ejs') %>
+ </body>
+</html> 

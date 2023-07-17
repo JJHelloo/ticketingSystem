@@ -1,0 +1,44 @@
+<%- include('partials/header.ejs') %>
+  
+<body>
+  <h2> Technician Login </h2>
+   <h4><span id="welcomeMsg"></span></h4>
+  <p>Technicians log in to create and manage repair tickets. Please register if you do not have a login.</p>
+  
+    <div id="card">
+      <h2>Pacific Analytics</h2>
+      <div id="input-container">
+        
+  <form id="indexForm" method="POST" action="/login">
+<!--    <span id="name">Username</span> <br>  -->    
+    <input type="text" id="indexUsername" name="username" placeholder="Username">
+    <br><br>
+<!--    <span id="name">Password</span> <br> -->
+    <input type="password" id="indexPassword" name="password" placeholder="Password">
+    <br><br>
+  
+<!--     <input type="button" id="indexLogin" class="indexButtons" onclick="window.location.href = '/technician/home';" value="Login" /> -->
+
+    <button class="indexButtons">Sign in </button>
+ 
+        <% if (typeof error != "undefined"){ %>
+           <br><br>
+  	<%= error %>
+  <% } %>
+<!--     <input type="button" id="indexRegister" class="indexButtons" onclick="window.location.href = '/technician/new';" value="Register" /> -->
+  </form>
+    <br>
+  <form action="/register">
+    <button class="indexButtons">Sign Up </button>
+  </form> 
+
+    </div>
+    </div>
+  <br>
+  <br>
+  <br>
+  <%- include('partials/footer.ejs') %>
+    <script src="/js/visits.js"></script> 
+<body onload="count();">
+</body>
+</html>
